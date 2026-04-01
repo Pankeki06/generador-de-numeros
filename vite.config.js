@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   root: '.',
-  base: '/',
+  base: '/Generador-de-numeros/',
 
   server: {
     port: 3000,
