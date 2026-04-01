@@ -18,11 +18,13 @@ export const Validators = {
     return null
   },
 
+
   maximo(value, label) {
     const n = parseFloat(value)
     if (isNaN(n) || n > 500000)
       return `"${label}" debe tener un maxico de 500,000 iteraciones.`
-  }
+    return null
+  },
   /**
    * Verifica que el valor sea un número (entero o decimal) > 0.
    */
