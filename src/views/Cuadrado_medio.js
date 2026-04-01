@@ -16,8 +16,8 @@ export class CuadradoMedioView extends BaseView {
 
   getFields() {
     return [
-      { id: 'seed',label: 'Semilla', placeholder: 'ej. 1234', type:"number"},
-      { id: 'n',label: 'Cantidad (n)',placeholder: 'ej. 20', type:"number"},
+      { id: 'seed',label: 'Semilla', placeholder: 'ej. 1234', type:"number", default: '1234'},
+      { id: 'n',label: 'Cantidad (n)',placeholder: 'ej. 20', type:"number", default: '20'},
     ]
   }
 

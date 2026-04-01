@@ -62,7 +62,7 @@ export class Router {
       </div>
       ${view.getExtraHTML()}
       <div class="botones">
-        <button id="btn-calcular" disabled>Calcular</button>
+        <button id="btn-calcular" >Calcular</button>
         <button id="btn-limpiar">Limpiar</button>
       </div>
       <div id="error-msg" class="error-msg" style="display:none"></div>
