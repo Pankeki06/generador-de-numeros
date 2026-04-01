@@ -66,7 +66,8 @@ export class ProductoMedioView extends BaseView {
   validate(id, { seed_1, seed_2, n }) {
 
     if (id === "n")
-      return Validators.positivo(n, "Cantidad", 0);
+      return Validators.positivo(n, "Cantidad", 0) ||
+      Validators.maximo(n, "Cantidad"); 
 
     if (id === "seed_1")
       return Validators.positivo(seed_1, "Semilla 1", 1) || 

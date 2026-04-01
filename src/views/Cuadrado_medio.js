@@ -62,7 +62,8 @@ export class CuadradoMedioView extends BaseView {
   validate(id, { seed, n }) {
 
     if (id === "n")
-      return Validators.positivo(n, "Cantidad", 0);
+      return Validators.positivo(n, "Cantidad", 0) ||
+      Validators.maximo(n, "Cantidad"); 
 
     if (id === "seed")
       return Validators.positivo(seed, "Semilla 1", 1) || 

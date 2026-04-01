@@ -93,7 +93,8 @@ export class CongruenciaLineal extends BaseView {
 
 
     if (id === "n")
-      return Validators.positivo(n, "Cantidad", 1);
+      return Validators.positivo(n, "Cantidad", 1) ||
+      Validators.maximo(n, "Cantidad"); 
 
   }
 }
