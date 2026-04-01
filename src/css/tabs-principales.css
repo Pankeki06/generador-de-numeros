@@ -1,0 +1,51 @@
+/* ==================== PESTAÑAS PRINCIPALES ==================== */
+.tabs-header {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ddd;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  border: none;
+  background: #f0f0f0;
+  cursor: pointer;
+  border-radius: 5px 5px 0 0;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  color: #555;
+}
+
+.tab-btn:hover {
+  background: #e0e0e0;
+}
+
+.tab-btn.active {
+  background: #0ac1d1;
+  color: white;
+  font-weight: bold;
+  border-bottom: 3px solid #0a9fb5;
+}
+
+.tab-content {
+  display: none;
+  animation: slideIn 0.3s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

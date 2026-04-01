@@ -1,0 +1,51 @@
+/* ==================== INPUTS Y CAMPOS ==================== */
+input { 
+  padding: 10px; 
+  border: 2px solid #ccc; 
+  border-radius: 5px; 
+  font-size: 14px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #0ac1d1;
+  box-shadow: 0 0 5px rgba(10, 193, 209, 0.3);
+}
+
+.campos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px 40px;
+  max-width: 680px;
+  margin: 20px auto;
+  justify-content: center;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+}
+
+.field-group label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.field-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.required {
+  color: red;
+  margin-left: 3px;
+}

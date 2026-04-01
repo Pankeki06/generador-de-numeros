@@ -1,0 +1,41 @@
+/* ==================== TABLAS GENERALES ==================== */
+table { 
+  margin: 20px auto;  
+  border-collapse: collapse; 
+  width: 100%; 
+  overflow-x: auto;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td { 
+  border: 1px solid #ddd; 
+  padding: 12px; 
+  word-break: break-word;
+} 
+
+th { 
+  background-color: #f0f0f0;
+  font-weight: 600;
+  color: #333;
+}
+
+td {
+  color: #555;
+}
+
+table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #fafbfc;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  margin: 15px 0;
+}

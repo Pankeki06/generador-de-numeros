@@ -1,0 +1,81 @@
+/* ==================== RESULTADOS DE PRUEBAS ==================== */
+.test-result-output {
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  margin-top: 12px;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.test-result {
+  padding: 12px;
+  border-radius: 6px;
+  border-left: 4px solid transparent;
+  width: 100%;
+}
+
+.test-result.passed {
+  background: #d4edda;
+  border-left-color: #28a745;
+  color: #155724;
+}
+
+.test-result.passed strong {
+  color: #28a745;
+}
+
+.test-result.failed {
+  background: #f8d7da;
+  border-left-color: #dc3545;
+  color: #721c24;
+}
+
+.test-result.failed strong {
+  color: #dc3545;
+}
+
+.test-result strong {
+  font-size: 16px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.test-result small {
+  color: inherit;
+  opacity: 0.8;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.test-result p {
+  margin: 8px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.stats-list {
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  border-top: 1px solid currentColor;
+  border-top-opacity: 0.2;
+}
+
+.stats-list li {
+  padding: 6px 0;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.stats-list b {
+  color: inherit;
+  font-weight: 600;
+  min-width: 150px;
+}

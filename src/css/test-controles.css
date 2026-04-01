@@ -1,0 +1,55 @@
+/* ==================== CONTROLES DE PRUEBAS ==================== */
+.test-controls {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: #f9f9f9;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  flex-wrap: wrap;
+}
+
+.test-controls label {
+  font-weight: 500;
+  color: #333;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.confianza-input {
+  width: 70px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.confianza-input:focus {
+  outline: none;
+  border-color: #0ac1d1;
+  box-shadow: 0 0 5px rgba(10, 193, 209, 0.3);
+}
+
+.btn-run-test {
+  padding: 8px 16px;
+  background-color: #0ac1d1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  font-size: 13px;
+}
+
+.btn-run-test:hover {
+  background-color: #0a9fb5;
+  box-shadow: 0 2px 6px rgba(10, 193, 209, 0.3);
+}
+
+.btn-run-test:active {
+  transform: scale(0.96);
+}

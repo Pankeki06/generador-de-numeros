@@ -1,0 +1,32 @@
+/* ==================== NAVEGACIÓN ==================== */
+#menu-navegacion {
+  margin-bottom: 20px; 
+  display: flex;       
+  justify-content: center; 
+  flex-wrap: wrap;     
+  gap: 10px;           
+}
+
+.btn-nav {
+  border-radius: 5px; 
+  transition: all 0.3s ease;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #333;
+  color: white;
+  border: none;
+}
+
+.btn-nav:hover {
+  background-color: #555;
+}
+
+.btn-nav.activo {
+  color: white;
+  background: #0ac1d1;
+  border-radius: 15px;
+}
+
+.btn-nav.activo:hover {
+  background-color: #0a9fb5;
+}

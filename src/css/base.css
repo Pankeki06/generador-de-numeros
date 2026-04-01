@@ -1,0 +1,41 @@
+/* ==================== RESET Y BASE ==================== */
+* {
+  box-sizing: border-box;
+}
+
+body { 
+  font-family: Arial, sans-serif; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-start; 
+  align-items: center;      
+  min-height: 100vh; 
+  margin: 0; 
+  padding: 20px;
+  background-color: #f4f4f9; 
+}
+
+/* ==================== TÍTULOS Y ENCABEZADOS ==================== */
+h1, h2 {
+  color: #333;
+  margin-top: 0;
+}
+
+h3 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* ==================== PANTALLA PRINCIPAL ==================== */
+#pantalla-principal { 
+  text-align: center;  
+  background: white; 
+  padding: 30px; 
+  border-radius: 12px; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+  width: 100%; 
+  max-width: 1200px;
+  margin-top: 20px;
+}
