@@ -116,6 +116,7 @@ export class Poker {
     }
 
     let df = agrupadas.length - 1;
+    console.log(alpha,df);
 
     let chiCritico = getChi2Critical(alpha, df);
 
