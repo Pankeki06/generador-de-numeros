@@ -73,7 +73,6 @@ function chi2CDF(x, df) {
 
 export function getChi2Critical(alpha, df) {
     const p = 1 - alpha 
-    console.log(alpha,df)
 
     const z = getZ((1 - alpha) * 100)
     const a = 2 / (9 * df)

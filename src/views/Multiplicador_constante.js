@@ -70,7 +70,7 @@ export class MultiplicadorConstanteView extends BaseView {
 
     if (id === "n")
       return Validators.positivo(n, "Cantidad", 0) ||
-      Validators.maximo(n, "Cantidad"); ;
+      Validators.maximo(n, "Cantidad");
 
     if (id === "seed_1")
       return Validators.positivo(seed_1, "Semilla 1", 1) || 
