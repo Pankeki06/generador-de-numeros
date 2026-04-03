@@ -13,7 +13,7 @@ export class CorridasArribaAbajo {
         for (let i = 0; i < n; i++) {
             let diferencia = 0;
 
-            let conjunto_S = "";
+            let conjunto_S = "-";
 
             if (i < numbers.length - 1) {
 

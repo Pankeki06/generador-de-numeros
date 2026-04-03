@@ -2,6 +2,7 @@ export class KolmogorovSmirnov {
 
   static test(numbers, alpha) {
     const n = numbers.length;
+    const fila = []
 
     if (n > 40) {
       throw new Error("Demasiados números para la prueba (máx. 40).");
@@ -16,6 +17,14 @@ export class KolmogorovSmirnov {
       const r = sorted[i];
       DPlus[i]  = Math.abs(((i + 1) / n) - r);
       DMinus[i] = Math.abs(r - (i / n));
+
+      fila.push(`
+      <tr>
+          <td>${i + 1}</td>
+          <td>${DPlus[i].toFixed(4)}</td>
+          <td>${DMinus[i].toFixed(4)}</td>
+      </tr>`
+      );
     }
 
     const maxDPlus  = Math.max(...DPlus);
@@ -30,11 +39,10 @@ export class KolmogorovSmirnov {
     return {
       passed,
       detail: `D = ${D.toFixed(4)} vs D crítico = ${Dcritico.toFixed(4)} (α=${alpha})`,
-      stats: {
-        'n': n,
-        'D calculado': D.toFixed(4),
-        'D crítico':   Dcritico.toFixed(4),
-        'α':           alpha,
+      tableConfig: {
+            name: "Kolmogorov-Smirnov - Tabla de Resultados",
+            headers: ["#", "D+", "D-"],
+            rows: fila  
       }
     };
   }

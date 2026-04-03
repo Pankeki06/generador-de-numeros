@@ -1,4 +1,3 @@
-/* ==================== RESET Y BASE ==================== */
 * {
   box-sizing: border-box;
 }
@@ -16,6 +15,7 @@ body {
 }
 
 /* ==================== NAVEGACIÓN ==================== */
+
 #menu-navegacion {
   margin-bottom: 20px; 
   display: flex;       
@@ -49,6 +49,7 @@ body {
 }
 
 /* ==================== PANTALLA PRINCIPAL ==================== */
+
 #pantalla-principal { 
   text-align: center;  
   background: white; 
@@ -60,7 +61,8 @@ body {
   margin-top: 20px;
 }
 
-/* ==================== INPUTS Y CAMPOS ==================== */
+/* ==================== FORMULARIO ==================== */
+
 input { 
   padding: 10px; 
   border: 2px solid #ccc; 
@@ -112,7 +114,6 @@ input:focus {
   margin-left: 3px;
 }
 
-/* ==================== BOTONES PRINCIPALES ==================== */
 .botones { 
   margin: 20px 0; 
   display: flex; 
@@ -121,6 +122,8 @@ input:focus {
   padding: 10px 20px;
   flex-wrap: wrap;
 }
+
+/* ==================== BOTONES BASE ==================== */
 
 button { 
   padding: 10px 20px; 
@@ -142,12 +145,13 @@ button:active {
   transform: scale(0.98);
 }
 
-/* ==================== TABLAS GENERALES ==================== */
+/* ==================== TABLAS ==================== */
+
 table { 
-  margin: 20px auto;  
+  margin: 4px auto 0;
   border-collapse: collapse; 
   width: 100%; 
-  overflow-x: auto;
+  min-width: 600px; /* 🔥 FIX CLAVE */
   background: white;
   border-radius: 8px;
   overflow: hidden;
@@ -177,14 +181,35 @@ table tbody tr:nth-child(even) {
   background-color: #fafbfc;
 }
 
-/* ==================== PESTAÑAS PRINCIPALES ==================== */
+.table-wrap {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 400px;
+
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  margin: 4px 0;
+
+  flex-shrink: 0; /* 🔥 evita que desaparezca una tabla */
+}
+
+/* ==================== TABS PRINCIPALES ==================== */
+
+.tabs-container {
+  min-height: clamp(400px, 70vh, 720px); /* 🔥 cambia height → min-height */
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
 .tabs-header {
   display: flex;
   gap: 5px;
-  margin-bottom: 20px;
   border-bottom: 2px solid #ddd;
   flex-wrap: wrap;
   padding-bottom: 10px;
+  margin-bottom: 0;
+  flex-shrink: 0;
 }
 
 .tab-btn {
@@ -211,25 +236,83 @@ table tbody tr:nth-child(even) {
 
 .tab-content {
   display: none;
-  animation: slideIn 0.3s ease;
 }
 
 .tab-content.active {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  flex: none; /* 🔥 clave */
+  overflow: visible;
+  min-height: 0;
+  padding-top: 16px;
 }
 
 @keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ==================== PESTAÑAS INTERNAS (PRUEBAS) ==================== */
+/* ==================== PAGINACIÓN ==================== */
+
+.pagination-info {
+  padding: 6px 0;
+  font-size: 13px;
+  color: #666;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  padding: 8px 10px;
+  flex-shrink: 0;
+
+  position: relative; /* 🔥 FIX CLAVE */
+  background: white;
+  border-top: 1px solid #eee;
+  margin-top: 10px; /* 🔥 FIX */
+}
+
+.pagination-btn {
+  padding: 8px 12px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #555;
+  font-size: 12px;
+  transition: all 0.2s ease;
+  min-width: 35px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.pagination-btn:hover:not(.active) {
+  border-color: #0ac1d1;
+  color: #0ac1d1;
+  background: rgba(10, 193, 209, 0.05);
+}
+
+.pagination-btn.active {
+  background: #0ac1d1;
+  color: white;
+  border-color: #0ac1d1;
+  font-weight: 600;
+}
+
+.pagination-dots {
+  display: flex;
+  align-items: center;
+  padding: 0 3px;
+  color: #999;
+  font-size: 12px;
+}
+
+/* ==================== PRUEBAS ESTADÍSTICAS ==================== */
+
 .tests-tabs-header {
   display: flex;
   gap: 5px;
@@ -237,6 +320,7 @@ table tbody tr:nth-child(even) {
   border-bottom: 1px solid #ddd;
   padding-bottom: 8px;
   flex-wrap: wrap;
+  flex-shrink: 0;
 }
 
 .test-tab-btn {
@@ -271,9 +355,8 @@ table tbody tr:nth-child(even) {
   display: block;
 }
 
-/* ==================== CONTROLES DE PRUEBAS ==================== */
 .test-controls {
-  margin: 15px 0;
+  margin: 0 0 12px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -282,6 +365,7 @@ table tbody tr:nth-child(even) {
   border-radius: 6px;
   border: 1px solid #e0e0e0;
   flex-wrap: wrap;
+  flex-shrink: 0;
 }
 
 .test-controls label {
@@ -327,17 +411,28 @@ table tbody tr:nth-child(even) {
   transform: scale(0.96);
 }
 
-/* ==================== RESULTADOS DE PRUEBAS ==================== */
+/* ==================== OUTPUT DE RESULTADO ==================== */
+
 .test-result-output {
+  max-height: none; /* 🔥 importante */
+  overflow: visible; /* 🔥 elimina scroll intermedio */
   padding: 15px;
   background: #f9f9f9;
   border-radius: 6px;
   border: 1px solid #e0e0e0;
-  margin-top: 12px;
-  min-height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-top: 0;
+
+  display: block; /* 🔥 CAMBIO FINAL */
+}
+
+.test-result-output > div {
+  width: 100%;
+}
+
+.test-result-output h4 {
+  margin: 0.5rem 0 0.25rem;
+  font-size: 13px;
+  color: #333;
 }
 
 .test-result {
@@ -386,6 +481,8 @@ table tbody tr:nth-child(even) {
   line-height: 1.5;
 }
 
+/* ==================== STATS ==================== */
+
 .stats-list {
   list-style: none;
   padding: 10px 0;
@@ -409,67 +506,8 @@ table tbody tr:nth-child(even) {
   min-width: 150px;
 }
 
-/* ==================== PAGINACIÓN ==================== */
-.table-wrap {
-  overflow-x: auto;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  margin: 15px 0;
-}
+/* ==================== MISCELÁNEA ==================== */
 
-.pagination-info {
-  padding: 10px 0;
-  font-size: 13px;
-  color: #666;
-  margin: 10px 0;
-  text-align: center;
-}
-
-.pagination-controls {
-  display: flex;
-  justify-content: center;
-  gap: 5px;
-  margin: 20px 0;
-  flex-wrap: wrap;
-  padding: 0 10px;
-}
-
-.pagination-btn {
-  padding: 8px 12px;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  cursor: pointer;
-  color: #555;
-  font-size: 12px;
-  transition: all 0.2s ease;
-  min-width: 35px;
-  text-align: center;
-  font-weight: 500;
-}
-
-.pagination-btn:hover:not(.active) {
-  border-color: #0ac1d1;
-  color: #0ac1d1;
-  background: rgba(10, 193, 209, 0.05);
-}
-
-.pagination-btn.active {
-  background: #0ac1d1;
-  color: white;
-  border-color: #0ac1d1;
-  font-weight: 600;
-}
-
-.pagination-dots {
-  display: flex;
-  align-items: center;
-  padding: 0 3px;
-  color: #999;
-  font-size: 12px;
-}
-
-/* ==================== MENSAJES ==================== */
 .text-muted {
   color: #999;
   font-style: italic;
@@ -488,20 +526,20 @@ table tbody tr:nth-child(even) {
   font-size: 13px;
 }
 
-/* ==================== TÍTULOS Y ENCABEZADOS ==================== */
 h1, h2 {
   color: #333;
   margin-top: 0;
 }
 
 h3 {
-  margin: 0 0 15px 0;
+  margin: 0 0 12px 0;
   color: #333;
   font-size: 16px;
   font-weight: 600;
 }
 
-/* ==================== CONTENEDOR DE PRUEBAS (GRID ORIGINAL) ==================== */
+/* ==================== PRUEBAS GRID (legacy) ==================== */
+
 .tests-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -524,10 +562,9 @@ h3 {
 }
 
 /* ==================== RESPONSIVE ==================== */
+
 @media (max-width: 768px) {
-  body {
-    padding: 10px;
-  }
+  body { padding: 10px; }
 
   #pantalla-principal {
     padding: 15px;
@@ -540,8 +577,10 @@ h3 {
     max-width: 100%;
   }
 
-  .field-group {
-    width: 150px;
+  .field-group { width: 150px; }
+
+  .tabs-container {
+    min-height: clamp(360px, 75vh, 600px);
   }
 
   .tabs-header,
@@ -562,9 +601,7 @@ h3 {
     padding: 10px;
   }
 
-  .test-controls label {
-    width: 100%;
-  }
+  .test-controls label { width: 100%; }
 
   .confianza-input {
     width: 60px;
@@ -573,7 +610,7 @@ h3 {
 
   .pagination-controls {
     gap: 3px;
-    padding: 0 5px;
+    padding: 6px 5px;
   }
 
   .pagination-btn {
@@ -588,53 +625,34 @@ h3 {
     font-size: 12px;
   }
 
-  .botones {
-    gap: 8px;
-  }
+  .botones { gap: 8px; }
 
   button {
     padding: 8px 16px;
     font-size: 12px;
   }
 
-  .tests-grid {
-    grid-template-columns: 1fr;
-  }
+  .tests-grid { grid-template-columns: 1fr; }
 
-  h3 {
-    font-size: 14px;
-  }
+  h3 { font-size: 14px; }
+
+  .test-result-output { height: auto; }
 }
 
 @media (max-width: 480px) {
-  #pantalla-principal {
-    padding: 10px;
-  }
+  #pantalla-principal { padding: 10px; }
 
-  .campos {
-    gap: 10px 15px;
-  }
+  .campos { gap: 10px 15px; }
 
-  .field-group {
-    width: 100%;
-  }
+  .field-group { width: 100%; }
 
-  .field-group input {
-    width: 100%;
-  }
+  .field-group input,
+  input { width: 100% !important; }
 
-  input {
-    width: 100% !important;
-  }
-
-  table {
-    font-size: 11px;
-  }
+  table { font-size: 11px; }
 
   table th,
-  table td {
-    padding: 6px;
-  }
+  table td { padding: 6px; }
 
   .tab-btn,
   .test-tab-btn {
@@ -656,4 +674,6 @@ h3 {
     padding: 6px 12px;
     font-size: 11px;
   }
+
+  .test-result-output { height: auto; }
 }

@@ -18,7 +18,7 @@ export class Huecos {
           <td>${i + 1}</td>
           <td>${numbers[i].toFixed(5)}</td>
           <td>${dentro}</td>
-          <td></td>
+          <td>-</td>
         </tr>`)
       } else {
         const idx = Math.min(contador, 5)

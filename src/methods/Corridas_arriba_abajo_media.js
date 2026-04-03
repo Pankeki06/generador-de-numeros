@@ -13,7 +13,7 @@ export class CorridasArribaAbajoMedia {
 
         for (let i = 0; i < Number(n); i++) {
             let diferencia = 0;
-            let conjunto_S = "";
+            let conjunto_S = "-";
 
             let actual = numbers[i] < 0.5 ? 0 : 1;
 
