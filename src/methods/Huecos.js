@@ -88,6 +88,9 @@ export class Huecos {
     })
 
     const df         = agrupadas.length - 1
+    if (df <= 0) {
+        return { passed: false, detail: "Df igual o menor a cero, por favor ingresar mas numeros"};
+    }
     const chiCritico = getChi2Critical(alpha, df)
     const passed     = chi2 <= chiCritico
 

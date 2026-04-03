@@ -117,7 +117,7 @@ export class Poker {
 
     let df = agrupadas.length - 1;
     if (df <= 0) {
-        return { passed: false, detail: "Df invalido, por favor ingresar mas numeros"};
+        return { passed: false, detail: "Df igual o menor a cero, por favor ingresar mas numeros"};
     }
 
     let chiCritico = getChi2Critical(alpha, df);
