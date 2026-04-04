@@ -107,12 +107,33 @@ export class ResultRenderer {
 
     $content.innerHTML = tests.map((t, i) => {
       const extraFields = t.getFields?.() ?? [];
-      const extraHTML = extraFields.map(f => `
+      const extraHTML = extraFields.map(f => {
+      if (f.type === 'select') {
+      return `
+        <div class="field-group ${f.noLabel ? 'no-label' : ''}">
+          ${f.noLabel ? '' : `<label for="test-field-${i}-${f.id}">${f.label}</label>`}
+          <select id="test-field-${i}-${f.id}" class="select-modern">
+            ${(f.options ?? []).map(opt => `
+              <option value="${opt.value}" ${opt.value === f.default ? 'selected' : ''}>
+                ${opt.label}
+              </option>
+            `).join('')}
+          </select>
+        </div>
+      `;
+    }
+
+      // default: input
+      return `
         <div class="field-group">
           <label for="test-field-${i}-${f.id}">${f.label}</label>
-          <input id="test-field-${i}-${f.id}" type="${f.type ?? 'number'}"
-            placeholder="${f.placeholder ?? ''}" value="${f.default ?? ''}">
-        </div>`).join('');
+          <input id="test-field-${i}-${f.id}" 
+            type="${f.type ?? 'number'}"
+            placeholder="${f.placeholder ?? ''}" 
+            value="${f.default ?? ''}">
+        </div>
+      `;
+    }).join('');
 
       return `
         <div class="test-tab-content ${i === 0 ? 'active' : ''}" data-test-index="${i}">

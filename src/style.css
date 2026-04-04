@@ -359,6 +359,7 @@ table tbody tr:nth-child(even) {
   margin: 0 0 12px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   padding: 12px;
   background: #f9f9f9;
@@ -366,6 +367,7 @@ table tbody tr:nth-child(even) {
   border: 1px solid #e0e0e0;
   flex-wrap: wrap;
   flex-shrink: 0;
+  text-align: center;
 }
 
 .test-controls label {
@@ -488,7 +490,6 @@ table tbody tr:nth-child(even) {
   padding: 10px 0;
   margin: 0;
   border-top: 1px solid currentColor;
-  border-top-opacity: 0.2;
 }
 
 .stats-list li {
@@ -597,7 +598,7 @@ h3 {
 
   .test-controls {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding: 10px;
   }
 
@@ -676,4 +677,43 @@ h3 {
   }
 
   .test-result-output { height: auto; }
+}
+/* Select moderno sin estilo feo de navegador */
+.select-modern {
+  width: auto;
+  min-width: 120px;
+
+  padding: 8px 32px 8px 12px;
+
+  border: 1.5px solid #ddd;
+  border-radius: 20px;
+
+  background-color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+
+  cursor: pointer;
+  outline: none;
+
+  appearance: none;
+
+  transition: all 0.2s ease;
+}
+
+/* Hover */
+.select-modern:hover {
+  border-color: #0ac1d1;
+}
+
+/* Focus */
+.select-modern:focus {
+  border-color: #0ac1d1;
+  box-shadow: 0 0 0 3px rgba(10, 193, 209, 0.15);
+}
+
+/* Para que no ocupe todo el espacio */
+.field-group.no-label {
+  width: auto;
+  align-items: center;
 }
