@@ -52,7 +52,7 @@ export class CorridasArribaAbajoMedia {
 
         return {
             passed,
-            detail: `corridas = ${contador}, No = ${No}, N1 = ${N1}, Z = ${Z_observado.toFixed(4)} vs valor crítico ${Z_critico.toFixed(4)} con α=${alpha}`,
+            detail: `Z = ${Z_observado.toFixed(4)} vs valor crítico ${Z_critico.toFixed(4)} con α=${alpha}`,
             tableConfig: {
                 name: "Corridas Arriba-Abajo de la media - Tabla de Resultados",
                 headers: ["#", "Numero", "Conjunto-S", "Corrida"],

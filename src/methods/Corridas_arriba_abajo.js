@@ -57,7 +57,7 @@ export class CorridasArribaAbajo {
 
         return {
             passed,
-            detail: `conrado = ${contador}, Z = ${Z_observado.toFixed(4)} vs ${Z_critico.toFixed(4)} con α=${alpha}`,
+            detail: `Z = ${Z_observado.toFixed(4)} vs ${Z_critico.toFixed(4)} con α=${alpha}`,
             tableConfig: {
                 name: "Corridas Arriba-Abajo - Tabla de Resultados",
                 headers: ["#", "X", "Conjunto-S", "Corrida"],
