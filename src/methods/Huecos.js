@@ -33,51 +33,33 @@ export class Huecos {
       }
     }
 
-    if (contador > 0) cantidades[Math.min(contador, 5)]++
+    // Si al final queda un hueco abierto
+    if (contador > 0) {
+      cantidades[Math.min(contador, 5)]++
+    }
 
     const totalHuecos = Object.values(cantidades).reduce((s, v) => s + v, 0)
 
+    // === SIN AGRUPACIÓN ===
     let categorias = Object.entries(cantidades).map(([tipo, observado]) => {
       const t  = Number(tipo)
       const Pi = t < 5
         ? prob * Math.pow(1 - prob, t)
-        : Math.pow(1 - prob, 5)
-      return { tipo: t.toString(), observado, Pi, Ei: Pi * totalHuecos }
+        : Math.pow(1 - prob, 5)   // huecos de 5 o más
+      return { 
+        tipo: t.toString(), 
+        observado, 
+        Pi, 
+        Ei: Pi * totalHuecos 
+      }
     })
 
-    categorias.sort((x, y) => x.Ei - y.Ei)
-
-    const agrupadas = []
-    let grupo = { tipo: '', observado: 0, Pi: 0, Ei: 0 }
-
-    for (const cat of categorias) {
-      grupo.tipo      += (grupo.tipo ? ' + ' : '') + cat.tipo
-      grupo.observado += cat.observado
-      grupo.Pi        += cat.Pi
-      grupo.Ei        += cat.Ei
-
-      if (grupo.Ei >= 5) {
-        agrupadas.push(grupo)
-        grupo = { tipo: '', observado: 0, Pi: 0, Ei: 0 }
-      }
-    }
-
-    if (grupo.Ei > 0) {
-      if (agrupadas.length > 0) {
-        const last = agrupadas[agrupadas.length - 1]
-        last.tipo      += ' + ' + grupo.tipo
-        last.observado += grupo.observado
-        last.Pi        += grupo.Pi
-        last.Ei        += grupo.Ei
-      } else {
-        agrupadas.push(grupo)
-      }
-    }
-
+    // Calcular chi-cuadrado con todas las categorías separadas
     let chi2 = 0
-    const rowsFrecuencias = agrupadas.map(cat => {
-      const chi = cat.Ei > 0 ? (cat.observado - cat.Ei) ** 2 / cat.Ei : 0
+    const rowsFrecuencias = categorias.map(cat => {
+      const chi = cat.Ei > 0 ? Math.pow(cat.observado - cat.Ei, 2) / cat.Ei : 0
       chi2 += chi
+
       return `<tr>
         <td>${cat.tipo}</td>
         <td>${cat.observado}</td>
@@ -87,10 +69,16 @@ export class Huecos {
       </tr>`
     })
 
-    const df         = agrupadas.length - 1
+    // Grados de libertad = número de categorías - 1 → aquí siempre 5
+    const df = categorias.length - 1   // 6 categorías → df = 5
+
     if (df <= 0) {
-        return { passed: false, detail: "Df igual o menor a cero, por favor ingresar mas numeros"};
+        return { 
+            passed: false, 
+            detail: "Df igual o menor a cero, por favor ingresar mas numeros"
+        };
     }
+
     const chiCritico = getChi2Critical(alpha, df)
     const passed     = chi2 <= chiCritico
 
@@ -99,7 +87,7 @@ export class Huecos {
       detail: `χ² = ${chi2.toFixed(4)} vs valor crítico ${chiCritico.toFixed(4)} con ${df} g.l. (α=${alpha})`,
       tableConfigs: [
         {
-          name:    'Huecos — Frecuencias agrupadas',
+          name:    'Huecos — Frecuencias (sin agrupar)',
           headers: ['Tamaño hueco', 'Oi', 'Pi', 'Ei', 'χ²'],
           rows:    rowsFrecuencias,
         },
